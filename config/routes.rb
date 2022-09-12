@@ -8,6 +8,8 @@ devise_for :admin, controllers: {
   sessions: "admin/sessions"
 }
 
+
+
 namespace :admin do
     root to: "homes#top"
     resources :bookmarks, only: [:show,:update]
@@ -22,7 +24,7 @@ namespace :admin do
     resources :comments, only: [:index,:edit,:create,:update,:destroy]
 
     post 'bookmarks/confirm'
-    resources :bookmarks, only: [:new]
+    resources :bookmarks, only: [:index,:show]
 
     resources :chats, only: [:index,:update,:destroy,:create]
 
@@ -31,6 +33,10 @@ namespace :admin do
     resources :customers, only: [:show,:edit,:update]
 
     resources :communities, only: [:index,:show]
+  end
+
+  devise_scope :customer do
+    post 'customers/guest_sign_in', to: 'public/sessions#guest_sign_in'
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

@@ -9,6 +9,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :telephone_number %><br>
+    <%= f.text_field :telephone_number, autocomplete: "telephone_number" %>
+  </div>
+
+  <div class="field">
     <%= f.label :email %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
   </div>
@@ -27,8 +32,12 @@
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "新規登録" %>
   </div>
 <% end %>
 
-<%= render "public/shared/links" %>
+<h6>既に登録済みの方は<%= render "public/shared/links" %></h6>
+
+<div class="row">
+  <%= link_to 'ゲストログイン', customers_guest_sign_in_path, class: "btn btn-secondary btn-sm btn-block mb-3 sign_in", method: :post %>
+</div>
