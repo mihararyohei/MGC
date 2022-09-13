@@ -8,6 +8,9 @@ class Customer < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   has_many :communities, through: :bookmarks
+  has_many :messages
+  has_many :rooms
+  has_many :communities, through: :rooms
 
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |customer|

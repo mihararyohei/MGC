@@ -8,8 +8,6 @@ devise_for :admin, controllers: {
   sessions: "admin/sessions"
 }
 
-
-
 namespace :admin do
     root to: "homes#top"
     resources :bookmarks, only: [:show,:update]
@@ -32,7 +30,9 @@ namespace :admin do
     patch 'customers/withdraw'
     resources :customers, only: [:show,:edit,:update]
 
-    resources :communities, only: [:index,:show]
+    resources :communities, only: [:index,:show]do
+    resources :rooms
+   end
   end
 
   devise_scope :customer do
