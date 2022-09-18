@@ -1,6 +1,0 @@
-<div id='messages' data-room_id="<%= @room.id %>">
- <h1>Chat room</h1>
-  <p><%= @message.content %><%= "#{message.customer.email}: #{message.content}" %></p>
-</div>
-<%= label_tag :content, 'Say something:' %>
-<%= text_field_tag :content, nil, data: { behavior: 'room_speaker' } %>

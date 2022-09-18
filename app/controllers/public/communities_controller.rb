@@ -5,7 +5,6 @@ class Public::CommunitiesController < ApplicationController
   end
 
   def show
-    @room = Room.find(params[:id])
-    @messages = @room.messages
+
   end
 end

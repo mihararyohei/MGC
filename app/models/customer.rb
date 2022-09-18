@@ -6,16 +6,34 @@ class Customer < ApplicationRecord
 
   has_many :chats, dependent: :destroy
   has_many :comments, dependent: :destroy
-  has_many :bookmarks, dependent: :destroy
-  has_many :communities, through: :bookmarks
+
+  has_many :bookmarks
+  has_many :bookmarked_rooms, through: :bookmarks,source: :room
+
   has_many :messages
-  has_many :rooms
-  has_many :communities, through: :rooms
+  has_many :customer_rooms
+  has_many :rooms, through: :customer_rooms
+
+  has_one_attached :profile_image
+
+  def get_profile_image
+    (profile_image.attached?) ? profile_image : 'no_image.jpg'
+  end
 
   def self.guest
     find_or_create_by!(name: 'guestuser' ,email: 'guest@example.com') do |customer|
       customer.password = SecureRandom.urlsafe_base64
       customer.name = "guestuser"
+    end
+  end
+
+  def self.looks(search, word)
+    if search == "perfect_match"
+      @customer = Customer.where("name LIKE?", "#{word}")
+    elsif search == "partial_match"
+      @customer = Customer.where("name LIKE?","%#{word}%")
+    else
+      @customer = Customer.all
     end
   end
 end

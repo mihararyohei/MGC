@@ -1,0 +1,18 @@
+<div style="display: flex;">
+  <p>
+    <% if current_customer.nil? %>
+      <%# DBから %>
+      <small class="text-danger">
+        <%= image_tag message.customer.get_profile_image, size: '50x50' %><br>
+        <%= message.customer.name %>
+      </small>
+      <p><%= simple_format(message.content) %></p>
+    <% else %>
+      <%# ACから %>
+      <small class="text-warning">
+        <%= image_tag current_customer.get_profile_image, size: '50x50' %><%= current_customer.name %>
+      </small>
+      <p><%= simple_format(message['message']) %></p>
+    <% end %>
+  </p>
+</div>

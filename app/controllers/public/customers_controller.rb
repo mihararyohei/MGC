@@ -33,12 +33,12 @@ class Public::CustomersController < ApplicationController
   private
 
   def customers_params
-    params.require(:customer).permit(:name,:telephone_number,:email)
+    params.require(:customer).permit(:name,:telephone_number,:email,:profile_image)
   end
 
   def ensure_correct_customer
     @customer = current_customer
-    redirect_to products_path unless @customer = current_customer
+    redirect_to customers_path unless @customer = current_customer
   end
 
 end

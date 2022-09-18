@@ -3,13 +3,15 @@ module ApplicationCable
     identified_by :current_customer
 
     def connect
-      reject_unauthorized_connection unless find_verified_user
+      self.current_customer = find_verified_customer
     end
 
     private
 
-    def find_verified_user
-      self.current_customer = env['warden'].user
+    def find_verified_customer
+      Customer.find(request.env['warden'].user.id)
+    rescue
+      reject_unauthorized_connection
     end
   end
 end

@@ -9,10 +9,10 @@
         <%= link_to "TOP", admin_root_path,class:"btn btn-outline-secondary rounded-circle" %>
       </li>
       <li>
-        <%= link_to "コミュニティ一覧", admin_communities_path,class:"btn btn-outline-secondary rounded-circle" %>
+        <%= link_to "会員一覧", admin_customers_path,class:"btn btn-outline-secondary rounded-circle" %>
       </li>
       <li>
-        <%= link_to "会員一覧", admin_customers_path,class:"btn btn-outline-secondary rounded-circle" %>
+        <%= link_to "ルーム一覧", admin_rooms_path,class:"btn btn-outline-secondary rounded-circle" %>
       </li>
       <li>
         <%= link_to "チャット一覧", admin_root_path,class:"btn btn-outline-secondary rounded-circle" %>
@@ -31,16 +31,10 @@
           <%= link_to "マイページ", customer_path(current_customer),class:"btn btn-outline-secondary rounded-circle" %>
         </li>
         <li>
-          <%= link_to "コミュニティ", communities_path,class:"btn btn-outline-secondary rounded-circle" %>
+          <%= link_to "ルーム", rooms_path,class:"btn btn-outline-secondary rounded-circle" %>
         </li>
         <li>
           <%= link_to "お気に入り", bookmarks_path,class:"btn btn-outline-secondary rounded-circle" %>
-        </li>
-        <li>
-          <%= link_to "コメント", comments_path,class:"btn btn-outline-secondary rounded-circle" %>
-        </li>
-        <li>
-          <%= link_to "チャット", chats_path,class:"btn btn-outline-secondary rounded-circle" %>
         </li>
         <li>
           <%= link_to "ログアウト", destroy_customer_session_path, method: :delete,class:"btn btn-outline-secondary rounded-circle" %>
@@ -52,7 +46,7 @@
             <%= link_to "TOP", root_path,class:"btn btn-outline-secondary rounded-circle" %>
           </li>
           <li>
-            <%= link_to "コミュニティ", communities_path,class:"btn btn-outline-secondary rounded-circle" %>
+            <%= link_to "ルーム", rooms_path,class:"btn btn-outline-secondary rounded-circle" %>
           </li>
           <li>
             <%= link_to "新規登録", new_customer_registration_path,class:"btn btn-outline-secondary rounded-circle" %>

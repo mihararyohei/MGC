@@ -1,2 +1,45 @@
-<h1>Admin::Customers#show</h1>
-<p>Find me in app/views/admin/customers/show.html.erb</p>
+<div class='container'>
+  <div class='row py-5'>
+    <div class="col-lg-3">
+      <h5 class="bg-dark text-light text-center"><%= @customer.name %>さんの会員詳細</h5>
+    </div>
+    <table class='table'>
+      <tr>
+        <th>会員ID</th>
+        <th><%= @customer.id %></th>
+      </tr>
+      <tr>
+        <th>氏名</th>
+        <th><%= @customer.name %></th>
+      </tr>
+      <tr>
+        <th>電話番号</th>
+        <th><%= @customer.telephone_number %></th>
+      </tr>
+      <tr>
+        <th>メールアドレス</th>
+        <th><%= @customer.email %></th>
+      </tr>
+      <tr>
+        <th>会員ステータス</th>
+        <th>
+          <% if @customer.is_deleted == false %>
+            <span class="text-success">有効</span>
+          <% else %>
+            <span class="text-secondary">退会</span>
+          <% end %>
+        </th>
+      </tr>
+      <tr>
+        <th>プロフィール画像</th>
+            <td><%= image_tag @customer.get_profile_image, size: '50x50' %></td>
+      </tr>
+      <tr>
+        <th></th>
+        <td>
+          <%= link_to "編集する",edit_admin_customer_path(@customer),class: 'btn btn-success btn-lg mr-5' %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>

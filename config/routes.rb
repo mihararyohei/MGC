@@ -12,8 +12,9 @@ namespace :admin do
     root to: "homes#top"
     resources :bookmarks, only: [:show,:update]
     resources :customers, only: [:show,:index,:edit,:update]
-    resources :communities, only: [:index,:create,:edit,:update]
     resources :chats, except: [:destroy]
+    resources :rooms, only: [:index,:create,:edit,:update,:show,:destroy]
+    get 'searches/search'
   end
 
   scope module: :public do
@@ -21,7 +22,6 @@ namespace :admin do
 
     resources :comments, only: [:index,:edit,:create,:update,:destroy]
 
-    post 'bookmarks/confirm'
     resources :bookmarks, only: [:index,:show]
 
     resources :chats, only: [:index,:update,:destroy,:create]
@@ -30,9 +30,10 @@ namespace :admin do
     patch 'customers/withdraw'
     resources :customers, only: [:show,:edit,:update]
 
-    resources :communities, only: [:index,:show]do
-    resources :rooms
-   end
+    resources :rooms,only:[:index,:show]do
+      resource :bookmarks, only: [:create, :destroy]
+    end
+    get 'searches/search'
   end
 
   devise_scope :customer do
