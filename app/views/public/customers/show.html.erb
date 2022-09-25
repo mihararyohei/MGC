@@ -1,51 +1,45 @@
-
 <div class="container py-5">
- <h4>マイページ</h4>
- <div class="row">
-  <div class="col-md-2">
+  <h4>マイページ</h4>
+  <div class="row">
+    <div class="col-md-2">
     <div>プロフィール画像</div>
-     <%= image_tag @customer.get_profile_image, size: '150x150' %>
-   </div>
-   <div class="col-md-5">
-     <table class="table">
-     <tbody>
-     <tr>
-      <td>Name</td>
-      <td><%= @customer.name %></td>
-     </tr>
-     <tr>
-      <td>電話番号</td>
-      <td><%= @customer.telephone_number %></td>
-     </tr>
-     <tr>
-      <td>メールアドレス</td>
-      <td><%= @customer.email %></td>
-     </tr>
-     <tr>
-      <td><h4><%= link_to "プロフィール編集", edit_customer_path(@customer.id), class:"btn btn-success" %></h4></td>
-      <td></td>
-     </tr>
-     </tbody>
-     </table>
-   </div>
- </div>
- <div class="row">
-   <div class="col-md-5">
-    <table class="table">
-     <tr>
-      <td><h4>MY BookMark</h4></td>
-      <td><%= link_to "お気に入り", bookmarks_path, class:"btn btn-primary" %></td>
-     </tr>
-     <tr>
-      <td><h4>Room</h4></td>
-      <td><%= link_to "ルーム一覧", rooms_path, class:"btn btn-primary" %></td>
-     </tr>
-     <tr>
-      <td><h4>MY Comment</h4></td>
-      <td><%= link_to "コメント", comments_path, class:"btn btn-primary" %></td>
-     </tr>
+      <%= image_tag @customer.get_profile_image, size: '150x150' %>
+    </div>
+    <div class="col-md-5">
+      <table class="table">
+        <tr>
+         <td>氏名</td>
+         <td><%= @customer.name %></td>
+        </tr>
+        <tr>
+          <td>電話番号</td>
+          <td><%= @customer.telephone_number %></td>
+        </tr>
+        <tr>
+          <td>メールアドレス</td>
+          <td><%= @customer.email %></td>
+        </tr>
+        <tr>
+          <% if @customer.name != "guestuser" %>
+            <td><h4><%= link_to "プロフィール編集", edit_customer_path(@customer.id), class:"btn btn-success" %></h4></td>
+            <td></td>
+          <% end %>
+        </tr>
       </table>
-   </div>
- </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-5">
+      <table class="table">
+        <tr>
+          <td><h4>MY BookMark</h4></td>
+          <td><%= link_to "お気に入り", bookmarks_path, class:"btn btn-primary" %></td>
+        </tr>
+        <tr>
+          <td><h4>Room</h4></td>
+          <td><%= link_to "ルーム一覧", rooms_path, class:"btn btn-primary" %></td>
+        </tr>
+      </table>
+    </div>
+  </div>
 </div>
-

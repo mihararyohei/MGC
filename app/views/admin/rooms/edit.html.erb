@@ -7,23 +7,22 @@
   <div class="row mt-5">
     <div class="row form-group">
       <%= form_with model: [:admin, @room] do |f| %>
-      <div class="d-flex flex-row bd-highlight ml-6">
-        <div class="form-group ">
-          <%= f.label :name,"ジャンル名" %>
-        </div>
-        <div class="form-group ml-5">
-          <div class="col-sm-12 ">
+        <div class="form-group">
+          <%= f.label :name,"ルーム名" %>
           <%= f.text_field :room_name, class: "form-control text_field" %>
-          </div>
         </div>
-        <br>
-        <div>ルーム画像
-     　<%= f.file_field :room_image,accept: "image/*", autocomplete: "image" %>
-     　</div>
-        <div class="form-group ml-5">
+        <div class="form-group">
+          <%= f.label :name,"ルーム画像" %><br>
+     　    <%= f.file_field :room_image,accept: "image/*", autocomplete: "image" %>
+     　  </div>
+        <div class="form-group">
+          <%= f.label :name,"カテゴリー" %><br>
+          <%= f.collection_select :category_name,Category.all,:category_name,:category_name %>
+     　  </div>
+        <div class="form-group">
           <%= f.submit "編集する", class: 'btn btn-success' %>
         </div>
-      </div>
-      <% end %>
     </div>
+    <% end %>
   </div>
+</div>

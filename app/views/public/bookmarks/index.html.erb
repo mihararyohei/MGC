@@ -1,8 +1,8 @@
 <h1 class="text-center">お気に入り一覧</h1>
-<div class="row py-5">
+<div class="row">
   <% @bookmarks.each do |room| %>
     <div class="col-md-3">
-      <div class="card">
+      <div class="card mt-3">
         <%= image_tag room.get_room_image, class: 'card-img-top' %>
         <%= link_to room.room_name, room %>
         <% if room.bookmarked_by?(current_customer) %>
@@ -14,6 +14,7 @@
             お気に入り追加
           <% end %>
         <% end %>
+        カテゴリー：<%= room.category.category_name if room.category_id %>
       </div>
     </div>
   <% end %>

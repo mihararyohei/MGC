@@ -1,15 +1,37 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <h1 class='text-center'>
-        MGC
-      </h1>
+      <h1 class='text-center'>MGC</h1>
     </div>
   </div>
   <div class="row">
     <div class="col">
       <div class="text-center">
-        コミュニティサイトです。<br>
+        <% if customer_signed_in? %>
+          <br>
+          <br>
+          <h3>ようこそMGCへ</h3><br>
+          <br>
+          <br>
+          <h3>コミュニティで会話を楽しみましょう！</h3><br>
+          <br>
+          <br>
+          <h3>『ルーム』からコミュニティを閲覧できます。</h3><br>
+          <br>
+          <br>
+          <br>
+        <% else %>
+          <br>
+          <br>
+          <h3>コミュニティサイトです。</h3><br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+          <%= link_to "新規登録", new_customer_registration_path,class: "btn btn-secondary" %>または<%= link_to 'ゲストログイン', customers_guest_sign_in_path, class: "btn btn-secondary", method: :post %>が必要です。<br>
+        <% end %>
       </div>
     </div>
   </div>

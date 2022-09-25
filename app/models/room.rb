@@ -1,11 +1,17 @@
 class Room < ApplicationRecord
-  has_many :messages
-  has_many :bookmarks,dependent: :destroy
-  has_many :customers, through: :bookmarks
+  has_many :messages,dependent: :destroy
+
+  has_many :bookmarks
+  has_many :customers, through: :bookmarks,dependent: :destroy
+
   has_many :customer_rooms
-  has_many :customers, through: :customer_rooms
+  has_many :customers, through: :customer_rooms,dependent: :destroy
+
+  belongs_to :category
 
   has_one_attached :room_image
+
+  # delegate :category_name, to: :category
 
   def get_room_image
     (room_image.attached?) ? room_image : 'no_image.jpg'

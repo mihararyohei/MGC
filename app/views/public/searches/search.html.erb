@@ -2,33 +2,40 @@
 <table class='table'>
   <thead>
     <tr>
-      <th>ID</th>
+      <th></th>
       <th>Name</th>
       <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
-
-    <tbody>
-      <% if @range == "Customer" %>
+  <tbody>
+    <% if @range == "Customer" %>
       <% @customers.each do |customer| %>
         <tr>
-          <td><%= customer.id %></td>
+          <td></td>
           <td><%= customer.name %></td>
-          <td><%#= image_tag book.user.get_profile_image,size:"100x100" %></td>
+          <td><%= image_tag customer.get_profile_image,size:"100x100" %></td>
         </tr>
       <% end %>
-    </tbody>
-  <% else %>
-
-    <tbody>
+    <% elsif  @range == "Room" %>
       <% @rooms.each do |room| %>
         <tr>
-          <td><%= room.id %></td>
+          <td></td>
           <td><%= room.room_name %></td>
-          <td><%#= image_tag book.user.get_profile_image,size:"100x100" %></td>
+          <td><%= image_tag room.get_room_image,size:"100x100" %></td>
         </tr>
       <% end %>
-    </tbody>
-  <% end %>
+    <% else %>
+      <% @categories.each do |category| %>
+        <tr>
+          <td></td>
+          <td><%= category.category_name %></td>
+          <% category.rooms.each do |room| %>
+            <td><%= room.room_name %></td>
+            <td><%= image_tag room.get_room_image,size:"100x100" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    <% end %>
+  </tbody>
 </table>

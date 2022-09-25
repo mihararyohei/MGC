@@ -1,13 +1,11 @@
 <div class="container">
   <div id='messages' data-room_id="<%= @room.id %>">
     <h1>Chat room<%= @room.room_name %></h1>
-    <% @messages.each do |message| %>
-      <%= render partial: "public/messages/message", locals: { message: message, room: @room, current_customer: nil } %>
-    <% end %>
-  </div>
-  <div class="fixed-bottom text-right mr-3">
-    <textarea name="message" id="message" rows="3" style="width:35%;"></textarea>
-    <small>Shift + Enterでメッセージ送信</small>
+    <table>
+      <% @messages.each do |message| %>
+        <%= render partial: "admin/messages/message", locals: { message: message, room: @room, current_customer: nil } %>
+      <% end %>
+    </table>
   </div>
   <div style="height:100px;"></div>
 </div>

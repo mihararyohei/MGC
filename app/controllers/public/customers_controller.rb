@@ -40,5 +40,4 @@ class Public::CustomersController < ApplicationController
     @customer = current_customer
     redirect_to customers_path unless @customer = current_customer
   end
-
 end

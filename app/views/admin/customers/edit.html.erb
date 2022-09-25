@@ -8,41 +8,23 @@
     <%= form_with model:[:admin,@customer], local:true do |f| %>
     <table>
       <tr>
-        <th>
-          <%= f.label :id, "会員ID" %>
-        </th>
-        <td>
-          <%= @customer.id %>
-        </td>
+        <th><%= f.label :id, "会員ID" %></th>
+        <td><%= @customer.id %></td>
       </tr>
       <tr>
-        <th>
-          <%= f.label "氏名" %>
-        </th>
-        <td>
-          <%= f.text_field :name, autocomplete: "name" %>
-        </td>
+        <th><%= f.label "氏名" %></th>
+        <td><%= f.text_field :name, autocomplete: "name" %></td>
       </tr>
       <tr>
-        <th>
-          <%= f.label "電話番号(ハイフンなし)" %>
-        </th>
-        <td>
-          <%= f.text_field :telephone_number, autocomplete: "telephone_number" %>
-       </td>
+        <th><%= f.label "電話番号(ハイフンなし)" %></th>
+        <td><%= f.text_field :telephone_number, autocomplete: "telephone_number" %></td>
       </tr>
       <tr>
-        <th>
-          <%= f.label "メールアドレス" %>
-        </th>
-        <td>
-          <%= f.email_field :email, saautofocus: true, autocomplete: "email" %>
-        <td>
+        <th><%= f.label "メールアドレス" %></th>
+        <td><%= f.email_field :email, saautofocus: true, autocomplete: "email" %></td>
       </tr>
       <tr>
-        <th>
-          <%= f.label "会員ステータス" %>
-        </th>
+        <th><%= f.label "会員ステータス" %></th>
         <td>
           <%= f.radio_button :is_deleted, 'false' %>
           <%= f.label :is_deleted, "有効", {value: 'false', style: "display: inline-block;"} %>
@@ -57,6 +39,5 @@
       </tr>
     </table>
     <% end %>
-  </div>
   </div>
 </div>

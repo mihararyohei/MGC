@@ -15,36 +15,41 @@ class Admin::RoomsController < ApplicationController
 
   def create
     @room = Room.new(rooms_params)
+    @room.category_id = Category.find_by(category_name: params[:room][:category_name]).id
     if @room.save
        redirect_to admin_rooms_path
     else
       @rooms = Room.all
-      render admin_rooms_path
+      render :index
     end
   end
 
   def update
     @room = Room.find(params[:id])
+    @room.category_id = Category.find_by(category_name: params[:room][:category_name]).id
     if @room.update(rooms_params)
        redirect_to admin_rooms_path
     else
-      render edit_admin_room_path(room.id)
+      render :edit
     end
   end
 
-  # def destroy
-  #   @model_class_name = ModelClassName.find(params[:id])
-  #   @model_class_name.destroy
+  def destroy
+    @message = Message.find(params[:message_id])
+    room = Room.find(@message.room.id)
+    @message.destroy
+    redirect_to admin_room_path(room.id)
+  end
 
-  #   respond_to do |wants|
-  #     wants.html { redirect_to(model_class_names_url) }
-  #     wants.xml  { head :ok }
-  #   end
-  # end
+  def destroy_all
+    @room = Room.find(params[:room_id])
+    @room.destroy
+    redirect_to admin_rooms_path
+  end
 
   private
 
   def rooms_params
-    params.require(:room).permit(:room_name,:room_image)
+    params.require(:room).permit(:room_name,:room_image,:category_id)
   end
 end

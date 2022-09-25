@@ -2,14 +2,16 @@
   <div id='messages' data-room_id="<%= @room.id %>">
     <h1>Chat room<%= @room.room_name %></h1>
     <table>
-    <% @messages.each do |message| %>
-      <%= render partial: "public/messages/message", locals: { message: message, room: @room, current_customer: nil } %>
-    <% end %>
+      <% @messages.each do |message| %>
+        <%= render partial: "public/messages/message", locals: { message: message, room: @room } %>
+      <% end %>
     </table>
   </div>
-  <div class="fixed-bottom text-right mr-3">
-    <textarea name="message" id="message" rows="3" style="width:35%;"></textarea>
-    <small>Shift + Enterでメッセージ送信</small>
-  </div>
+  <% if current_customer.name != "guestuser" %>
+    <div class="fixed-bottom text-right mr-3">
+      <textarea name="message" id="message" rows="3" style="width:35%;"></textarea>
+      <small>Shift + Enterでメッセージ送信</small>
+    </div>
+  <% end %>
   <div style="height:100px;"></div>
 </div>

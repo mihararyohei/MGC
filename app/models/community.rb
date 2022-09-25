@@ -1,3 +1,0 @@
-class Community < ApplicationRecord
-
-end

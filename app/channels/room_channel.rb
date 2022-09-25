@@ -8,10 +8,6 @@ class RoomChannel < ApplicationCable::Channel
   end
 
   def speak(data)
-    # Message.create! content: data['message'], customer_id: current_customer.id, room_id: params['room']
-    # ActionCable.server.broadcast "room_channel_#{params['room_id']}", message: render_message(data)
-    # Message.create! content: data['message']
-
     # Messageにデータを保存
     Message.create(
       customer_id: current_customer.id,

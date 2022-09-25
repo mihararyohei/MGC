@@ -6,16 +6,13 @@
   <% if admin_signed_in? %>
     <ul class="navbar-nav ml-auto">
       <li>
-        <%= link_to "TOP", admin_root_path,class:"btn btn-outline-secondary rounded-circle" %>
-      </li>
-      <li>
         <%= link_to "会員一覧", admin_customers_path,class:"btn btn-outline-secondary rounded-circle" %>
       </li>
       <li>
         <%= link_to "ルーム一覧", admin_rooms_path,class:"btn btn-outline-secondary rounded-circle" %>
       </li>
       <li>
-        <%= link_to "チャット一覧", admin_root_path,class:"btn btn-outline-secondary rounded-circle" %>
+        <%= link_to "カテゴリー一覧", admin_categories_path,class:"btn btn-outline-secondary rounded-circle" %>
       </li>
       <li>
         <%= link_to "管理者ログアウト", destroy_admin_session_path, method: :delete,class:"btn btn-outline-secondary rounded-circle" %>

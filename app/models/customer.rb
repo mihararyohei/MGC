@@ -6,13 +6,13 @@ class Customer < ApplicationRecord
 
   has_many :chats, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :messages,dependent: :destroy
 
   has_many :bookmarks
-  has_many :bookmarked_rooms, through: :bookmarks,source: :room
+  has_many :bookmarked_rooms, through: :bookmarks,dependent: :destroy,source: :room
 
-  has_many :messages
   has_many :customer_rooms
-  has_many :rooms, through: :customer_rooms
+  has_many :rooms, through: :customer_rooms,dependent: :destroy
 
   has_one_attached :profile_image
 

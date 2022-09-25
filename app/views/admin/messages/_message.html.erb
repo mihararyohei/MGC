@@ -1,0 +1,14 @@
+<tr>
+  <td style="width: 20%">
+    <small class="text-danger">
+      <%= image_tag message.customer.get_profile_image, size: '50x50' %><br>
+      <%= message.customer.name %>
+    </small>
+  </td>
+  <td  style="width: 30%; word-break: break-all;">
+    <%= message.content %>
+  </td>
+  <td  style="width: 10%">
+    <%= button_to '削除',admin_rooms_destroy_path(message.id),method: :delete, data: { confirm: '本当に削除しますか？'},class: "btn btn-sm btn-success" %>
+  </td>
+</tr>

@@ -1,5 +1,5 @@
 class Public::SearchesController < ApplicationController
- before_action :authenticate_customer!
+  before_action :authenticate_customer!
 
   def search
     @range = params[:range]
@@ -7,8 +7,10 @@ class Public::SearchesController < ApplicationController
 
     if @range == "Customer"
       @customers = Customer.looks(params[:search], params[:word])
-    else
+    elsif @range == "Room"
       @rooms = Room.looks(params[:search], params[:word])
+    else
+      @categories = Category.looks(params[:search], params[:word])
     end
   end
 end
