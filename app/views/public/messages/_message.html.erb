@@ -1,4 +1,4 @@
-<% if customer_signed_in? %>
+<% if !current_customer.nil? %>
   <%# DBから %>
   <tr>
     <td style="width: 20%">
