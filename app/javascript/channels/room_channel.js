@@ -10,11 +10,9 @@ $(document).on('turbolinks:load', function () {
         {channel: "RoomChannel", room_id: messages.data('room_id')}, {
 
             connected() {
-                // 未使用
             },
 
             disconnected() {
-                // 未使用
             },
 
             received(data) {
