@@ -28,8 +28,8 @@
     <% else %>
       <% @categories.each do |category| %>
         <tr>
-          <td></td>
-          <td><%= category.category_name %></td>
+          <th></th>
+          <th></th>
           <% category.rooms.each do |room| %>
             <td><%= room.room_name %></td>
             <td><%= image_tag room.get_room_image,size:"100x100" %></td>
