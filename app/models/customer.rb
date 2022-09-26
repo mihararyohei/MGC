@@ -14,6 +14,9 @@ class Customer < ApplicationRecord
   has_many :customer_rooms
   has_many :rooms, through: :customer_rooms,dependent: :destroy
 
+  validates :name, presence: true
+  validates :telephone_number, presence: true
+
   has_one_attached :profile_image
 
   def get_profile_image
