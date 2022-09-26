@@ -1,28 +1,29 @@
-<div class="container py-5 ">
+<div class="container py-5">
   <div class="row">
-    <div class="col-lg-3">
-      <h5 class="bg-dark text-light text-center">ルーム編集</h5>
+    <div class="col">
+      <h3 class="text-center">ルーム編集</h3>
     </div>
   </div>
   <div class="row mt-5">
-    <div class="row form-group">
+    <div class="col-4"></div>
+    <div class="col-5 form-group">
       <%= form_with model: [:admin, @room] do |f| %>
         <div class="form-group">
           <%= f.label :name,"ルーム名" %>
           <%= f.text_field :room_name, class: "form-control text_field" %>
         </div>
         <div class="form-group">
-          <%= f.label :name,"ルーム画像" %><br>
+          <%= f.label :name,"ルーム画像" %>
      　    <%= f.file_field :room_image,accept: "image/*", autocomplete: "image" %>
      　  </div>
         <div class="form-group">
-          <%= f.label :name,"カテゴリー" %><br>
+          <%= f.label :name,"カテゴリー" %>
           <%= f.collection_select :category_name,Category.all,:category_name,:category_name %>
      　  </div>
         <div class="form-group">
           <%= f.submit "編集する", class: 'btn btn-success' %>
         </div>
+      <% end %>
     </div>
-    <% end %>
   </div>
 </div>
