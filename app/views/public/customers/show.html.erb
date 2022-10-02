@@ -9,6 +9,11 @@
     <div class="col-2">
       <div>プロフィール画像</div>
       <%= image_tag @customer.get_profile_image, size: '150x150' %>
+      <div>
+        <% @customer.tags.each do |tag| %>
+        <small class="badge badge-secondary"><%= tag.name %></small>
+        <% end %>
+      </div>
     </div>
     <div class="col-5">
       <table class="table">

@@ -29,10 +29,9 @@ class RoomChannel < ApplicationCable::Channel
     #   http_host: ENV['HOST_URL'],
     #   https: ENV['HTTPS']
     #   )
-    #   # byebug
-    # # return renderer.render(
-    # #   # partial: 'public/messages/message',
-    # #   # locals: { message: data, current_customer: current_customer }
+    #  return renderer.render(
+    #     partial: 'public/messages/message',
+    #     locals: { message: data, current_customer: current_customer }
 
     # # )
     # return render text: 'test'

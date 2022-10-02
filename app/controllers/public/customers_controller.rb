@@ -19,6 +19,17 @@ class Public::CustomersController < ApplicationController
   def update
     @customer = Customer.find(params[:id])
     if @customer.update(customers_params)
+      if @customer.profile_image.attached?
+        #tags = Vision.get_image_data(@customer.profile_image)
+        tags = Vision.get_image_data(StringIO.new(@customer.profile_image.download))
+        #binding.irb
+        Tag.where(customer_id: current_customer.id).destroy_all # 一旦自分のタグをすべて削除
+        tags.each do |tag|
+          # タグを登録していく
+          Tag.create(customer_id: current_customer.id, name: tag)
+          # @customer.profile_image.tags.create(name: tag)
+        end
+      end
       redirect_to customer_path(current_customer)
     end
   end
