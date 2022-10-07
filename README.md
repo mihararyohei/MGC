@@ -18,9 +18,7 @@
 - 常時利用したい人が閲覧、チャットをする
 
 ## 設計書
-ER図URL
-テーブル定義書URL
-アプリケーション詳細設計URL
+![ER図_MGC](https://user-images.githubusercontent.com/108612635/194463615-adc5ad79-09f4-4ac6-9ee7-926f19f0ef46.jpg)
 
 ## 開発環境
 - OS：Linux(CentOS)
