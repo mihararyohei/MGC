@@ -3,7 +3,7 @@
   <% @bookmarks.each do |room| %>
     <div class="col-md-3">
       <div class="card mt-3">
-        <%= image_tag room.get_room_image, class: 'card-img-top' %>
+        <%= image_tag room.get_room_image, class: 'card-img-top',:size =>'200x300' %>
         <%= link_to room.room_name, room %>
         <% if room.bookmarked_by?(current_customer) %>
           <%= link_to room_bookmarks_path(room), method: :delete do %>
