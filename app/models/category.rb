@@ -1,6 +1,8 @@
 class Category < ApplicationRecord
   has_many :rooms,dependent: :destroy
 
+  validates :category_name, presence: true
+
   def self.looks(search, word)
     if search == "perfect_match"
       @category = Category.where("category_name LIKE?", "#{word}")

@@ -11,6 +11,8 @@ class Room < ApplicationRecord
 
   has_one_attached :room_image
 
+  validates :room_name, presence: true
+
   # delegate :category_name, to: :category
 
   def get_room_image
